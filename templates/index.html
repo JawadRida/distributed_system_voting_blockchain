@@ -1,0 +1,42 @@
+INDEX_HTML = """{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8 text-center">
+        <div class="card p-5">
+            <i class="fas fa-vote-yea fa-5x text-primary mb-4"></i>
+            <h1 class="display-4 fw-bold mb-3">Blockchain Voting System</h1>
+            <p class="lead text-muted mb-4">
+                Secure, transparent, and tamper-proof voting powered by distributed blockchain technology
+            </p>
+            
+            <div class="row mt-4">
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                    <h5>Secure</h5>
+                    <p class="text-muted">Cryptographic signatures protect your vote</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-lock fa-3x text-primary mb-3"></i>
+                    <h5>Anonymous</h5>
+                    <p class="text-muted">Your identity remains private</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-check-double fa-3x text-primary mb-3"></i>
+                    <h5>Immutable</h5>
+                    <p class="text-muted">Votes cannot be altered</p>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg me-3">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+                <a href="{{ url_for('signup') }}" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}"""

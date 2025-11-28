@@ -1,0 +1,65 @@
+RESULTS_HTML = """{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-md-10">
+        <div class="card p-4 mb-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="mb-1">
+                        <i class="fas fa-chart-bar text-primary"></i> Voting Results
+                    </h2>
+                    <p class="text-muted mb-0">Live results from the blockchain</p>
+                </div>
+                <div class="text-end">
+                    <div class="badge bg-success mb-2">
+                        <i class="fas fa-check-circle"></i> 
+                        {% if blockchain_valid %}Blockchain Valid{% else %}Blockchain Invalid{% endif %}
+                    </div>
+                    <div>
+                        <strong>Total Votes:</strong> {{ total_votes }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% for result in results %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <div>
+                        <h5 class="mb-0">
+                            {% if loop.index == 1 %}
+                                <i class="fas fa-crown text-warning"></i>
+                            {% endif %}
+                            {{ result.name }}
+                        </h5>
+                        <small class="text-muted">{{ result.party }}</small>
+                    </div>
+                    <div class="text-end">
+                        <h4 class="mb-0 text-primary">{{ result.votes }}</h4>
+                        <small class="text-muted">votes</small>
+                    </div>
+                </div>
+                <div class="progress" style="height: 30px;">
+                    <div class="progress-bar bg-primary" 
+                         role="progressbar" 
+                         style="width: {{ result.percentage }}%"
+                         aria-valuenow="{{ result.percentage }}" 
+                         aria-valuemin="0" 
+                         aria-valuemax="100">
+                        {{ result.percentage }}%
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="text-center mt-4">
+            <a href="{{ url_for('home') }}" class="btn btn-primary">
+                <i class="fas fa-arrow-left"></i> Back to Voting
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}"""

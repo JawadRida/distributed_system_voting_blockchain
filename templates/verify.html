@@ -1,0 +1,30 @@
+VERIFY_HTML = """{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card p-5 text-center">
+            {% if has_voted %}
+            <i class="fas fa-check-circle fa-5x text-success mb-4"></i>
+            <h2 class="text-success mb-3">Vote Verified!</h2>
+            <p class="lead">
+                Your vote has been successfully recorded on the blockchain and is immutable.
+            </p>
+            <div class="alert alert-info mt-4">
+                <i class="fas fa-shield-alt"></i> 
+                Your vote is anonymous and cryptographically secured using SHA-256 hashing.
+            </div>
+            {% else %}
+            <i class="fas fa-times-circle fa-5x text-warning mb-4"></i>
+            <h2 class="text-warning mb-3">No Vote Found</h2>
+            <p class="lead">
+                You have not cast a vote yet.
+            </p>
+            <a href="{{ url_for('home') }}" class="btn btn-primary mt-3">
+                <i class="fas fa-vote-yea"></i> Vote Now
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}"""

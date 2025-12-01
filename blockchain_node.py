@@ -155,7 +155,7 @@ class BlockchainNode:
             # Sync with network before mining to avoid forks
             self.consensus()
             
-            if len(self.blockchain.pending_votes) >= 3:  # Mine when 3+ votes pending
+            if len(self.blockchain.pending_votes) >= 1:  # Mine when 1+ votes pending
                 self.blockchain.mine_pending_votes(self.node_id)
                 time.sleep(1)  # Brief pause to allow propagation
                 self.consensus()  # Sync with network after mining

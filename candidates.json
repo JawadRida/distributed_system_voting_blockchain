@@ -1,0 +1,30 @@
+[
+  {
+    "id": "candidate_a",
+    "name": "Mahdi Assaf",
+    "party": "HezebAllah",
+    "description": "Focus on education and healthcare",
+    "image_url": "https://via.placeholder.com/150"
+  },
+  {
+    "id": "candidate_b",
+    "name": "Mahdi Rida",
+    "party": "Party Beta",
+    "description": "Focus on economy and jobs",
+    "image_url": "https://via.placeholder.com/150"
+  },
+  {
+    "id": "candidate_c",
+    "name": "Candidate C",
+    "party": "Party Gamma",
+    "description": "Focus on environment and technology",
+    "image_url": "https://via.placeholder.com/150"
+  },
+  {
+    "id": "candidate_1764594127",
+    "name": "Ali Nassrallah",
+    "party": "kashefet lmahdi",
+    "description": "kashef",
+    "image_url": "https://via.placeholder.com/150"
+  }
+]

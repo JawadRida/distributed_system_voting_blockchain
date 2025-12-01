@@ -1,0 +1,68 @@
+ADMIN_ELECTION_HTML = """{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card p-4">
+                <h2 class="mb-4">
+                    <i class="fas fa-cog text-info"></i> Election Settings
+                </h2>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Election Title *</label>
+                        <input type="text" class="form-control" name="title" required
+                               value="{{ settings.title }}"
+                               placeholder="Enter election title">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" name="description" rows="2">{{ settings.description }}</textarea>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Start Date *</label>
+                            <input type="date" class="form-control" name="start_date" required
+                                   value="{{ settings.start_time.strftime('%Y-%m-%d') }}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Start Time *</label>
+                            <input type="time" class="form-control" name="start_time" required
+                                   value="{{ settings.start_time.strftime('%H:%M') }}">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">End Date *</label>
+                            <input type="date" class="form-control" name="end_date" required
+                                   value="{{ settings.end_time.strftime('%Y-%m-%d') }}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">End Time *</label>
+                            <input type="time" class="form-control" name="end_time" required
+                                   value="{{ settings.end_time.strftime('%H:%M') }}">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" name="is_active" 
+                               {% if settings.is_active %}checked{% endif %}>
+                        <label class="form-check-label">Election is Active</label>
+                    </div>
+                    
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save Settings
+                        </button>
+                        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Back to Dashboard
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}"""

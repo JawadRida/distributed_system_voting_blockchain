@@ -1,0 +1,27 @@
+ELECTION_CLOSED_HTML = """{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card p-5 text-center">
+            <i class="fas fa-lock fa-5x text-warning mb-4"></i>
+            <h2 class="text-warning mb-3">Voting is Closed</h2>
+            <p class="lead">
+                The election period has ended or has not started yet.
+            </p>
+            <div class="alert alert-info mt-4">
+                <h5>{{ settings.title }}</h5>
+                <p class="mb-0">
+                    <strong>Start:</strong> {{ settings.start_time.strftime('%B %d, %Y at %H:%M') }}<br>
+                    <strong>End:</strong> {{ settings.end_time.strftime('%B %d, %Y at %H:%M') }}
+                </p>
+            </div>
+            <div class="mt-4">
+                <a href="{{ url_for('results') }}" class="btn btn-primary">
+                    <i class="fas fa-chart-bar"></i> View Results
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}"""
